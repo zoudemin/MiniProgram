@@ -1,0 +1,8 @@
+<!--components/w-swiper/w-swiper.wxml-->
+<swiper style="height:{{styles.height}}" autoplay="{{styles.autoplay}}" interval="{{styles.interval}}" circular="{{styles.circular}}" display-multiple-items="{{styles.displayMultipleItems}}" indicator-dots="{{styles.indicatorDots}}" indicator-color="{{styles.indicatorColor}}" indicator-active-color="{{styles.indicatorActiveColor}}">
+  <swiper-item wx:for="{{banners}}" wx:for-index="index" wx:for-item="banner" class="home-swiper-item" wx:key="index">
+    <view>
+      <image src="{{banner.image}}" mode="widthFix" bindload="bindload"/>
+    </view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,5 @@
+<!--pages/home/home.wxml-->
+<banner banners="{{banners}}" styles="{{styles}}"/>
+<nav recommends="{{recommends}}"/>
+<section/>
+<tabcpn list="{{list}}" bind:itemclick="itemclick"/>

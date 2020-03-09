@@ -1,0 +1,24 @@
+/* pages/home/nav/nav.wxss */
+.recommend {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 8rpx solid #eee;
+  padding-bottom: 30rpx;
+}
+
+.recommend .nav-item {
+  flex: 1;
+  text-align: center;
+  padding-top: 30rpx;
+}
+
+.recommend .nav-item image {
+  display: block;
+  margin: auto;
+  width: 150rpx;
+}
+
+.recommend .nav-item text {
+  font-size: 26rpx;
+  color: #666;
+}

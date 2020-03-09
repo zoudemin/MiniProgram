@@ -1,6 +1,64 @@
 //app.js
+const TOKEN = 'token';
 App({
+  globalData:{
+    token:'',
+  },
   onLaunch: function () {
+    if (wx.getStorageSync(TOKEN)&& wx.getStorageSync(TOKEN).length!==0) {
+      wx.request({
+        url: 'http://123.207.32.32:3000/auth',
+        method: 'post',
+        header:{
+          token:wx.getStorageSync(TOKEN),
+        },
+        success:function(res){
+          if(res.data.errCode == undefined) {
+            this.globalData.taken = wx.getStorageSync(TOKEN);
+          }else{
+            wx.login({
+              success: function (res) {
+                console.log(res)
+                wx.request({
+                  url: "http://123.207.32.32:3000/login",
+                  data: {
+                    code: res.code
+                  },
+                  method: 'post',
+                  success: function (res) {
+                    this.globalData.token = res.data.token
+                    console.log(res);
+                    wx.setStorageSync(TOKEN, res.data.token)
+                  }.bind(this)
+                })
+              }.bind(this)
+            })
+          }
+          console.log(res);
+        }.bind(this),
+        fail:function(res){
+          console.log(res)
+        }
+      })
+    } else {
+      wx.login({
+        success:function(res){
+          console.log(res)
+          wx.request({
+            url:"http://123.207.32.32:3000/login",
+            data:{
+              code:res.code
+            },
+            method:'post',
+            success:function(res){
+              this.globalData.token=res.data.token
+              console.log(res);
+              wx.setStorageSync(TOKEN, res.data.token)
+            }.bind(this)
+          })
+        }.bind(this)
+      })
+    }
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -34,6 +92,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    name: '邹德敏'
   }
 })

@@ -1,0 +1,8 @@
+/* pages/home/section/section.wxss */
+.section {
+  width: 750rpx;
+}
+
+.section image {
+  width: 100%;
+}

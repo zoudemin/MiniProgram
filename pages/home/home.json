@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "banner": "/components/w-swiper/w-swiper",
+    "nav": "./nav/nav",
+    "section": "./section/section",
+    "tabcpn": "/components/tab-cpn/tab-cpn"
+  },
+  "navigationBarTitleText": "首页"
+}

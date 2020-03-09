@@ -1,0 +1,18 @@
+/* components/tab-cpn/tab-cpn.wxss */
+.tab-class {
+  display: flex;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+}
+
+.active {
+  color: red;
+}
+
+.active text {
+  padding: 10rpx;
+  border-bottom: 5rpx solid red;
+}

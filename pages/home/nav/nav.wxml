@@ -1,0 +1,9 @@
+<!--pages/home/nav/nav.wxml-->
+<view class="recommend">
+  <block wx:for="{{recommends}}" wx:key="key">
+    <view class="nav-item">
+      <image src="{{item.image}}" mode="widthFix"/>
+      <text>{{item.title}}</text>
+    </view>
+  </block>
+</view>
