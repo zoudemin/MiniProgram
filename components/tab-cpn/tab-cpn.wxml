@@ -1,9 +1,17 @@
 <!--components/tab-cpn/tab-cpn.wxml-->
-<view class="tab-class">
+<view class="tab-class tabbarfixed">
   <block wx:for="{{list}}" wx:for-index="index" wx:for-item="val" wx:key="key">
-    <view bindtap="clickItem" data-index="{{index}}" class="tab-item itemstyle {{activeItem == index?'active':''}}">
+    <view bindtap="clickItem" data-index="{{index}}" class="tab-item {{activeItem == index?'active':''}}">
       <text>{{val}}</text>
     </view>
   </block>
 </view>
-<view class="itemstyle">sldkfj</view>
+<view class="itemstyle-view">
+  <block wx:for="{{viewbody}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+    <view class="itemstyle">
+      <image src="{{item.url}}" mode="widthFix"/>
+      <text>{{item.name}}</text>
+      <text space="emsp" class="money">{{item.money}}</text>
+    </view>
+  </block>
+</view>

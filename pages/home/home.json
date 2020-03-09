@@ -3,7 +3,8 @@
     "banner": "/components/w-swiper/w-swiper",
     "nav": "./nav/nav",
     "section": "./section/section",
-    "tabcpn": "/components/tab-cpn/tab-cpn"
+    "tabcpn": "/components/tab-cpn/tab-cpn",
+    "backtop": "/components/back-top/back-top"
   },
   "navigationBarTitleText": "首页"
 }

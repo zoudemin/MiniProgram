@@ -6,14 +6,24 @@ Component({
   properties: {
     list:{
       type:Array,
-      value:['手套'],
+      value:['无数据'],
       observer:function(n, o) {
         console.log(n, o)
       }
-    }
+    },
+    viewbody: {
+      type:Array,
+      value:[],
+      observer:function(n, o) {
+        console.log(n, o)
+      }
+    },
   },
-  externalClasses: ['itemstyle'],
+  externalClasses: ['itemstyle', 'tabbarfixed'],
 
+  onPageScroll: function (e) {
+    console.log(e);//{scrollTop:99}
+  },
   /**
    * 组件的初始数据
    */
@@ -30,21 +40,7 @@ Component({
         activeItem: val.currentTarget.dataset.index
       })
       this.triggerEvent('itemclick', { index: val.currentTarget.dataset.index, title: this.properties.list[val.currentTarget.dataset.index]})
-      wx.showToast({
-        title: this.properties.list[val.currentTarget.dataset.index],
-        duration: 500,
-        icon:'loading',
-        mask:true,
-        success:function(){
-          console.log('success')
-        },
-        fail:function(){
-          console.log('fail')
-        },
-        complete:function(){
-          console.log('complete')
-        }
-      })
+      
       // wx.showModal({
       //   title: 'this.properties.list[val.currentTarget.dataset.index]',
       //   content: this.properties.list[val.currentTarget.dataset.index],

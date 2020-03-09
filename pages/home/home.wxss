@@ -1,1 +1,14 @@
 /* pages/home/home.wxss */
+.itemstyle {
+  width: 360rpx;
+}
+
+.tabbarfixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  height: 70rpx;
+  padding-top: 14rpx;
+}
