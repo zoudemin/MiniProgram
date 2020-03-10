@@ -4,11 +4,14 @@
 }
 
 .tabbarfixed {
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background-color: #fff;
-  height: 70rpx;
-  padding-top: 14rpx;
+}
+
+.tabbarfixedhide {
+  display: none !important;
 }

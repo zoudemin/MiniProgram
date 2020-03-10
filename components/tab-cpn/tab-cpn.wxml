@@ -1,4 +1,11 @@
 <!--components/tab-cpn/tab-cpn.wxml-->
+<view class="tab-class">
+  <block wx:for="{{list}}" wx:for-index="index" wx:for-item="val" wx:key="key">
+    <view bindtap="clickItem" data-index="{{index}}" class="tab-item {{activeItem == index?'active':''}}">
+      <text>{{val}}</text>
+    </view>
+  </block>
+</view>
 <view class="tab-class tabbarfixed">
   <block wx:for="{{list}}" wx:for-index="index" wx:for-item="val" wx:key="key">
     <view bindtap="clickItem" data-index="{{index}}" class="tab-item {{activeItem == index?'active':''}}">

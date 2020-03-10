@@ -45,3 +45,8 @@
 .itemstyle-view .money {
   color: red;
 }
+
+.tab-class {
+  height: 70rpx;
+  padding-top: 14rpx;
+}

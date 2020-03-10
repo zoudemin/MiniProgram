@@ -44,6 +44,7 @@ Page({
     nowbody: [],
     promise: new Promise(()=>{}),
     scrollhidden: false,
+    tabbarfixed: 'tabbarfixedhide',
   },
 
   watch:{
@@ -202,6 +203,9 @@ Page({
     }) : (TOP_DISTANCE > v.scrollTop && this.data.scrollhidden?this.setData({
         scrollhidden: false
     }):'');
+    wx.createSelectorQuery().select('#tabClass').boundingClientRect((rect)=>{
+      rect.top < 0 && this.data.tabbarfixed != 'tabbarfixed' ? this.setData({ tabbarfixed: 'tabbarfixed' }) : (rect.top > 0 && this.data.tabbarfixed == 'tabbarfixed' ? this.setData({ tabbarfixed: 'tabbarfixedhide' }):'')
+    }).exec();
   },
 
   /**

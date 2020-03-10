@@ -2,5 +2,5 @@
 <banner banners="{{banners}}" styles="{{styles}}"/>
 <nav recommends="{{recommends}}"/>
 <section/>
-<tabcpn list="{{list}}" bind:itemclick="itemclick" viewbody="{{nowbody}}" itemstyle="itemstyle" tabbarfixed="tabbarfixed"/>
+<tabcpn id="tabClass" list="{{list}}" bind:itemclick="itemclick" viewbody="{{nowbody}}" itemstyle="itemstyle" tabbarfixed="{{tabbarfixed}}"/>
 <backtop bind:backtopf="backtopf" scrollhidden="{{scrollhidden}}"/>
