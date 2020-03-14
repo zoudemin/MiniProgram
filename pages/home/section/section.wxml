@@ -1,4 +1,4 @@
 <!--pages/home/section/section.wxml-->
 <view class="section">
-  <image src="/assets/home/recommend_bg.jpg" mode="widthfix"/>
+  <image src="/assets/home/recommend_bg.jpg" mode="widthFix"/>
 </view>

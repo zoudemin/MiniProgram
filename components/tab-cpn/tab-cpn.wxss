@@ -33,7 +33,6 @@
 }
 
 .itemstyle-view text {
-  width: 360rpx;
   font-size: 22rpx;
   color: #666;
   overflow: hidden;

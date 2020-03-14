@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "w-tab-control": "/components/w-tab-control/w-tab-control",
+    "tabcpn": "/components/tab-cpn/tab-cpn"
+  }
+}

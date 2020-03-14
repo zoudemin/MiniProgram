@@ -1,5 +1,6 @@
 import services from '../../service/home.js';
 import {setWatcher} from '../../service/watch.js';
+import { jpg } from '../../service/config.js';
 
 const TOP_DISTANCE = '580';
 
@@ -28,18 +29,6 @@ Page({
       'sell': { page: 0, list: [] }
     },
     newGoods: [],
-    names: [
-      '高腰性感超短裙女款公主裙比身夏2019新款半身小短裙 红色 单裙不含模特上衣 均码 130斤内适穿',
-      '朗悦女装 短裙女2020年夏季百褶裙短裙韩版学院风格子网球裙半身裙女 LWQZ192172',
-      '幂缇莎背带裙连衣裙夏2019新款夏季女春秋学生韩版套装仙女超仙森系裙子',
-      '丹慕妮尔裙子早春装2020年新款洋气减龄名媛气质显瘦小香风连衣裙 粉色 175/96A/XXL',
-      '纽曼之城背带裙女装2020韩版夏季修身V领弹力中长款开叉高腰连衣裙两件套办公室工作服 9901-背带裙 L 建议100-115斤',
-      'YAYA鸭鸭服饰针织连衣裙女2020年春装新款女装两件显瘦流行毛衣裙子半高领气质针织裙新款 图片色 L 【建议105-115斤】',
-      'YAYA鸭鸭服饰针织连衣裙女2020春季新款假两件显瘦流行打底毛衣女裙子气质针织连衣裙新款加绒',
-      '南极人 连衣裙2020春款女装新款民族风长袖连衣裙 中长款女士网红打底A字裙子 N5-GTAF02-021',
-      '目迹春季连衣裙2020年新款两件套春装新款女时尚小香风气质显瘦套装裙子潮 L 建议105~115斤',
-      '三彩2019冬季新款花边立领喇叭袖蕾丝裙网纱大摆仙女中长连衣裙女'
-    ],
     tabNow: 'pop',
     nowbody: [],
     promise: new Promise(()=>{}),
@@ -58,6 +47,15 @@ Page({
     }
   },
   
+  propdetail(val){
+    // 1.获取iid
+    // const iid = this.data.goodsitem.iid;
+    // 2.跳转到对应的路径
+    wx.navigateTo({
+      url: '/pages/detail/detail?iid=' + val.detail,
+    })
+  },
+
   itemclick(v) {
     switch(v.detail.title){
       case '流行':
@@ -112,7 +110,7 @@ Page({
               if (res.statusCode == 200) {
                 const obj = this.data.goods;
                 obj[type].page = page;
-                obj[type].list = [...this.data.goods[type].list, ...this.jpg(page, type)];
+                obj[type].list = [...this.data.goods[type].list, ...jpg(page, type)];
                 this.setData({
                   goods: obj
                 });
@@ -134,16 +132,7 @@ Page({
       }
     })
   },
-  jpg: function (page, type) {
-    switch(type){
-      case 'pop':
-        return [{ url: '/assets/good/' + (page % 5 != 0 ? page % 5 * 2 - 1 : 9) + '.jpg', name: this.data.names[page % 5 != 0 ? page % 5 * 2 - 2 : 8], money: '￥' + (Math.floor(Math.random() * 50)*10 + 500) }, { url: '/assets/good/' + (page % 5 != 0 ? page % 5 * 2 : 10) + '.jpg', name: this.data.names[page % 5 != 0 ? page % 5 * 2 - 1 : 9], money: '￥' + (Math.floor(Math.random() * 50)*10 + 500)}, ];
-      case 'new':
-        return [{ url: '/assets/good/' + ((page + 2) % 5 != 0 ? (page + 2) % 5 * 2 - 1 : 9) + '.jpg', name: this.data.names[(page + 2) % 5 != 0 ? (page + 2) % 5 * 2 - 2 : 8], money: '￥' + (Math.floor(Math.random() * 50)*10 + 500) }, { url: '/assets/good/' + ((page + 2) % 5 != 0 ? (page + 2) % 5 * 2 : 10) + '.jpg', name: this.data.names[(page + 2) % 5 != 0 ? (page + 2) % 5 * 2 - 1 : 9], money: '￥' + (Math.floor(Math.random() * 50)*10 + 500)}];
-      case 'sell':
-        return [{ url: '/assets/good/' + ((page + 4) % 5 != 0 ? (page + 4) % 5 * 2 - 1 : 9) + '.jpg', name: this.data.names[(page + 4) % 5 != 0 ? (page + 4) % 5 * 2 - 2 : 8], money: '￥' + (Math.floor(Math.random() * 50)*10 + 500) }, { url: '/assets/good/' + ((page + 4) % 5 != 0 ? (page + 4) % 5 * 2 : 10) + '.jpg', name: this.data.names[(page + 4) % 5 != 0 ? (page + 4) % 5 * 2 - 1 : 9], money: '￥' + (Math.floor(Math.random() * 50)*10 + 500) }];
-    }
-  },
+  
 
   // 回到页面顶部
   backtopf() {

@@ -6,7 +6,7 @@ Component({
   properties: {
     list:{
       type:Array,
-      value:['无数据'],
+      value:['详细信息'],
       observer:function(n, o) {
         console.log(n, o)
       }
@@ -35,6 +35,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    detailpage(index) {
+      console.log(index)
+      this.triggerEvent('propdetail',index.currentTarget.dataset.index);
+    },
     clickItem(val){
       this.setData({
         activeItem: val.currentTarget.dataset.index
